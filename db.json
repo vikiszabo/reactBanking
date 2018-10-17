@@ -1,8 +1,8 @@
 {
   "transactions": [
-    { "id": 1, "sender": "someone", "recipient": "someone else", "amount": 1000, "currency":"USD", "timestamp": 123  },
-    { "id": 2, "sender": "someone", "recipient": "someone else", "amount": 1000, "currency":"USD", "timestamp": 123  },
-    { "id": 3, "sender": "someone", "recipient": "someone else", "amount": 1000, "currency":"USD", "timestamp": 123  },
-    { "id": 4, "sender": "someone", "recipient": "someone else", "amount": 1000, "currency":"USD", "timestamp": 123  }
+    { "id": 1, "sender": "Juli", "recipient": "Jolán", "amount": 1000, "currency":"USD", "timestamp": 123  },
+    { "id": 2, "sender": "Béla", "recipient": "Zoli", "amount": 300, "currency":"GBP", "timestamp": 123  },
+    { "id": 3, "sender": "Dezső", "recipient": "Józsi", "amount": 4234234, "currency":"HUF", "timestamp": 123  },
+    { "id": 4, "sender": "Géua", "recipient": "Rozi", "amount": 1000, "currency":"USD", "timestamp": 123  }
   ]
 }
