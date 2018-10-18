@@ -6,16 +6,32 @@
     { "id": 4, "sender": "Géua", "recipient": "Rozi", "amount": 1000, "currency":"USD", "timestamp": 123  }
   ],
 
+  "savingsAccount": [
+    { "id": 1, "owner": "Zoli", "balance": 1000, "currency": "USD", "timestamp": 123},
+    { "id": 2, "owner": "Gizi", "balance": 3000, "currency": "EUR", "timestamp": 123},
+    { "id": 3, "owner": "Tomi", "balance": 5000, "currency": "HUF", "timestamp": 123},
+    { "id": 4, "owner": "Gida", "balance": 8000, "currency": "GBP", "timestamp": 123}
+  ],
+
+
+  "currentAccount": [
+    { "id": 1, "owner": "Zoli", "balance": 1000, "currency": "USD", "timestamp": 123},
+    { "id": 2, "owner": "Gizi", "balance": 3000, "currency": "EUR", "timestamp": 123},
+    { "id": 3, "owner": "Tomi", "balance": 2000, "currency": "HUF", "timestamp": 123},
+    { "id": 4, "owner": "Gida", "balance": 7000, "currency": "GBP", "timestamp": 123}
+  ]
+
+  /*
   "accounts": [
     { "id": 1, "owner": "Zoli",
       "savingsAccount": [
         {
-          "amount": 1000, "currency": "USD", "timestamp": 123
+          "balance": 1000, "currency": "USD", "timestamp": 123
         }
       ],
       "currentAccount": [
         {
-          "amount": 20000, "currency": "HUF", "timpestamp":123
+          "balance": 20000, "currency": "HUF", "timpestamp":123
         }
 
       ]
@@ -24,12 +40,12 @@
     { "id": 2, "owner": "Gizi",
       "savingsAccount": [
         {
-          "amount": 1000, "currency": "USD", "timestamp": 123
+          "balance": 1000, "currency": "USD", "timestamp": 123
         }
       ],
       "currentAccount": [
         {
-          "amount": 20000, "currency": "HUF", "timpestamp":123
+          "balance": 20000, "currency": "HUF", "timpestamp":123
         }
 
       ]
@@ -38,12 +54,12 @@
     { "id": 3, "owner": "Tomi",
       "savingsAccount": [
         {
-          "amount": 3000, "currency": "EUR", "timestamp": 123
+          "balance": 3000, "currency": "EUR", "timestamp": 123
         }
       ],
       "currentAccount": [
         {
-          "amount": 20000, "currency": "USD", "timpestamp":123
+          "balance": 20000, "currency": "USD", "timestamp":123
         }
 
       ]
@@ -52,16 +68,16 @@
     { "id": 4, "owner": "Gida",
       "savingsAccount": [
         {
-          "amount": 500, "currency": "USD", "timestamp": 123
+          "balance": 500, "currency": "USD", "timestamp": 123
         }
       ],
       "currentAccount": [
         {
-          "amount": 30000, "currency": "HUF", "timpestamp":123
+          "balance": 30000, "currency": "HUF", "timestamp":123
         }
 
       ]
     }
 
-  ]
+  ] */
 }

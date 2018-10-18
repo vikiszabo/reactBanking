@@ -15,7 +15,7 @@ class SavingsAccount extends Component {
                 <ul>
                     {this.props.savingsAccount.map(sva => {
                         return (
-                            <li key={sva.id}> {sva.id} {sva.balance} {sva.dateDue} </li>
+                            <li key={sva.id}> {sva.id} {sva.balance} </li>
                         )
                     })}
                 </ul>
