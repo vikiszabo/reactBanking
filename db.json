@@ -4,5 +4,64 @@
     { "id": 2, "sender": "Béla", "recipient": "Zoli", "amount": 300, "currency":"GBP", "timestamp": 123  },
     { "id": 3, "sender": "Dezső", "recipient": "Józsi", "amount": 4234234, "currency":"HUF", "timestamp": 123  },
     { "id": 4, "sender": "Géua", "recipient": "Rozi", "amount": 1000, "currency":"USD", "timestamp": 123  }
+  ],
+
+  "accounts": [
+    { "id": 1, "owner": "Zoli",
+      "savingsAccount": [
+        {
+          "amount": 1000, "currency": "USD", "timestamp": 123
+        }
+      ],
+      "currentAccount": [
+        {
+          "amount": 20000, "currency": "HUF", "timpestamp":123
+        }
+
+      ]
+    },
+
+    { "id": 2, "owner": "Gizi",
+      "savingsAccount": [
+        {
+          "amount": 1000, "currency": "USD", "timestamp": 123
+        }
+      ],
+      "currentAccount": [
+        {
+          "amount": 20000, "currency": "HUF", "timpestamp":123
+        }
+
+      ]
+    },
+
+    { "id": 3, "owner": "Tomi",
+      "savingsAccount": [
+        {
+          "amount": 3000, "currency": "EUR", "timestamp": 123
+        }
+      ],
+      "currentAccount": [
+        {
+          "amount": 20000, "currency": "USD", "timpestamp":123
+        }
+
+      ]
+    },
+
+    { "id": 4, "owner": "Gida",
+      "savingsAccount": [
+        {
+          "amount": 500, "currency": "USD", "timestamp": 123
+        }
+      ],
+      "currentAccount": [
+        {
+          "amount": 30000, "currency": "HUF", "timpestamp":123
+        }
+
+      ]
+    }
+
   ]
 }
