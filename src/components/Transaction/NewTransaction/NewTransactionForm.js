@@ -48,6 +48,11 @@ function getStepContent(step) {
 class VerticalLinearStepper extends React.Component {
     state = {
         activeStep: 0,
+        paymentDetails: {
+            account:'',
+            amount: '',
+            ccy: ''
+        }
     };
 
     handleNext = () => {
