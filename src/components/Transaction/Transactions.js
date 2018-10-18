@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {Link} from "@reach/router";
 
 function mapStateToProps(state) {
     return {transactions: state.transactions};
 }
 
-class Transaction extends Component {
+class Transactions extends Component {
 
     render() {
         return (
@@ -18,6 +19,8 @@ class Transaction extends Component {
                         )
                     })}
                 </ul>
+                <Link to="/new-transaction">New transaction</Link>
+                {this.props.children}
             </div>
         );
     }
@@ -25,4 +28,4 @@ class Transaction extends Component {
 
 export default connect(
     mapStateToProps,
-)(Transaction);
+)(Transactions);
