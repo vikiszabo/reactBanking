@@ -5,6 +5,7 @@ import Transactions from "./Transaction/Transactions";
 import {Router} from "@reach/router";
 import NewTransactionForm from "./Transaction/NewTransaction/NewTransactionForm";
 import Navigation from "./UI/Navigation";
+import NewTransaction from "./Transaction/NewTransaction/NewTransaction";
 
 class App extends Component {
     render() {
@@ -12,7 +13,7 @@ class App extends Component {
             <Navigation>
                 <Router>
                     <Example text={"React banking"} path="/"/>
-                    <NewTransactionForm path="/new-transaction"/>
+                    <NewTransaction path="/new-transaction"/>
                     <Transactions path="/transactions"/>
                 </Router>
             </Navigation>

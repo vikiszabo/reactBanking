@@ -18,11 +18,11 @@ const drawerWidth = 240;
 const styles = theme => ({
     root: {
         flexGrow: 1,
-        height: 440,
         zIndex: 1,
         overflow: 'hidden',
         position: 'relative',
         display: 'flex',
+        height: 1700
     },
     appBar: {
         zIndex: theme.zIndex.drawer + 1,
@@ -77,6 +77,8 @@ const styles = theme => ({
         flexGrow: 1,
         backgroundColor: theme.palette.background.default,
         padding: theme.spacing.unit * 3,
+        paddingTop: 80,
+
     },
 });
 
@@ -130,8 +132,8 @@ class MiniDrawer extends React.Component {
                     </div>
                     <List>{getLinkList()}</List>
                 </Drawer>
+                <div className={classes.toolbar} />
                 <main className={classes.content}>
-                    <div className={classes.toolbar} />
                     {this.props.children}
                 </main>
             </div>

@@ -9,7 +9,6 @@ import InputLabel from "@material-ui/core/InputLabel/InputLabel";
 
 
 const CurrencySelect = ({name, label, onChange, onFocus, placeholder, value, error}) => {
-    let wrapperClass = 'form-group';
 
     const currencies = [
         {
@@ -30,8 +29,7 @@ const CurrencySelect = ({name, label, onChange, onFocus, placeholder, value, err
         },
     ];
     return (
-        <div className={wrapperClass}>
-            <div className="field">
+            <div >
                 <InputLabel htmlFor="currency">{label}</InputLabel>
                 <Select
                     variant="outlined"
@@ -59,7 +57,6 @@ const CurrencySelect = ({name, label, onChange, onFocus, placeholder, value, err
                     })}
                 </Select>
             </div>
-        </div>
     );
 };
 
