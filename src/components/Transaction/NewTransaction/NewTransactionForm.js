@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
+import {withStyles} from '@material-ui/core/styles';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
@@ -29,26 +29,38 @@ const styles = theme => ({
 });
 
 function getSteps() {
-    return ['Select campaign settings', 'Create an ad group', 'Create an ad'];
+    return ['Payment details', 'Recipient details', 'Other details'];
 }
 
-function getStepContent(step) {
-    switch (step) {
-        case 0:
-            return <PaymentDetails />;
-        case 1:
-            return <RecipientDetails />;
-        case 2:
-            return <OtherDetails />;
-        default:
-            return 'Unknown step';
-    }
-}
 
 class VerticalLinearStepper extends React.Component {
-    state = {
-        activeStep: 0,
+
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            activeStep: 0,
+            account: '',
+            amount: '',
+            ccy: ''
+        };
+        this.stepsContents = [
+            <PaymentDetails
+                amount={this.state.amount}
+                ccy={this.state.ccy}
+                onChange={this.onChange}
+            />,
+            <RecipientDetails/>,
+            <OtherDetails/>
+        ];
+    }
+
+    onChange = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value
+        });
     };
+
 
     handleNext = () => {
         this.setState(state => ({
@@ -69,9 +81,9 @@ class VerticalLinearStepper extends React.Component {
     };
 
     render() {
-        const { classes } = this.props;
+        const {classes} = this.props;
         const steps = getSteps();
-        const { activeStep } = this.state;
+        const {activeStep} = this.state;
 
         return (
             <div className={classes.root}>
@@ -81,7 +93,9 @@ class VerticalLinearStepper extends React.Component {
                             <Step key={label}>
                                 <StepLabel>{label}</StepLabel>
                                 <StepContent>
-                                    <Typography>{getStepContent(index)}</Typography>
+                                    <div>
+                                        {this.stepsContents[index]}
+                                    </div>
                                     <div className={classes.actionsContainer}>
                                         <div>
                                             <Button
