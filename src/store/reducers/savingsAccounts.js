@@ -1,10 +1,10 @@
-const savingsAccount = (state = [], action) => {
+const savingsAccounts = (state = [], action) => {
     switch (action.type) {
-        case 'LOAD_SAVINGS':
+        case 'LOAD_SAVINGSACCOUNTS':
             return action.savingsAccount;
         default:
             return state;
     }
 };
 
-export default savingsAccount;
+export default savingsAccounts;

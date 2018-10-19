@@ -12,6 +12,8 @@ export default function () {
     const links = [
         {icon: <SendSharp/>, label: "Transactions", url: "/transactions"},
         {icon: <Add/>, label: "New Transaction", url: "/new-transaction"},
+        {icon: <SendIcon/>, label: "Savings Accounts", url: "/savingsaccount"},
+        {icon: <Add/>, label: "New Savings Account", url: "/new-savingsaccount"},
         {icon: <SendIcon/>, label: "Send", url: "/"},
         {icon: <DraftsIcon/>, label: "Drafts", url: "/"}
     ];

@@ -3,23 +3,23 @@ import {connect} from 'react-redux';
 import {Link} from "@reach/router";
 
 function mapStateToProps(state) {
-    return {savingsAccount: state.savingsAccount};
+    return {savingsAccounts: state.savingsAccounts};
 }
 
-class SavingsAccount extends Component {
+class SavingsAccounts extends Component {
 
     render() {
         return (
             <div>
                 <h2>Savings Account:</h2>
                 <ul>
-                    {this.props.savingsAccount.map(sva => {
+                    {this.props.savingsAccounts.map(sva => {
                         return (
-                            <li key={sva.id}> {sva.id} {sva.balance} </li>
+                            <li key={sva.id}> {sva.id} </li>
                         )
                     })}
                 </ul>
-                <Link to="/add-saving">Add Saving</Link>
+                <Link to="/new-savingsaccount">New Savings Account</Link>
                 {this.props.children}
             </div>
         );
@@ -28,4 +28,4 @@ class SavingsAccount extends Component {
 
 export default connect(
     mapStateToProps,
-)(SavingsAccount);
+)(SavingsAccounts);

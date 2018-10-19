@@ -4,7 +4,7 @@ import Example from "./Example/Example";
 import Transactions from "./Transaction/Transactions";
 import {Router} from "@reach/router";
 import NewTransactionForm from "./Transaction/NewTransaction/NewTransactionForm";
-import SavingsAccount from "./savingsAccount/SavingsAccount";
+import SavingsAccount from "./SavingsAccount/SavingsAccounts";
 import Navigation from "./UI/Navigation";
 
 
@@ -17,7 +17,7 @@ class App extends Component {
                     <Example text={"React banking"} path="/"/>
                     <NewTransactionForm path="/new-transaction"/>
                     <Transactions path="/transactions"/>
-                    <SavingsAccount path="savingsaccount" />
+                    <SavingsAccount path="/savingsaccount" />
                 </Router>
             </Navigation>
 
