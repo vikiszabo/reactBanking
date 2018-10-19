@@ -1,14 +1,27 @@
 import React  from 'react';
 import PropTypes from 'prop-types';
-import TextField from "@material-ui/core/TextField/TextField";
 import MenuItem from "@material-ui/core/MenuItem/MenuItem";
-import FormControl from "@material-ui/core/FormControl/FormControl";
 import Select from "@material-ui/core/Select/Select";
 import OutlinedInput from "@material-ui/core/OutlinedInput/OutlinedInput";
-import InputLabel from "@material-ui/core/InputLabel/InputLabel";
+import FormControl from "@material-ui/core/FormControl/FormControl";
+import {withStyles} from "@material-ui/core";
 
 
-const CurrencySelect = ({name, label, onChange, onFocus, placeholder, value, error}) => {
+const styles = theme => ({
+    root: {
+        flexWrap: 'wrap',
+    },
+    formControl: {
+        margin: theme.spacing.unit,
+        minWidth: 120,
+        display: 'inline'
+    },
+    selectEmpty: {
+        marginTop: theme.spacing.unit * 2,
+    },
+});
+
+const CurrencySelect = ({classes, name, label, onChange, onFocus, placeholder, value}) => {
 
     const currencies = [
         {
@@ -29,8 +42,7 @@ const CurrencySelect = ({name, label, onChange, onFocus, placeholder, value, err
         },
     ];
     return (
-            <div >
-                <InputLabel htmlFor="currency">{label}</InputLabel>
+            <FormControl variant="outlined" className={classes.formControl}>
                 <Select
                     variant="outlined"
                     value={value}
@@ -40,11 +52,10 @@ const CurrencySelect = ({name, label, onChange, onFocus, placeholder, value, err
                     }}
                     input={
                         <OutlinedInput
-                            fullWidth
+                            label={label}
                             id="currency"
                             name={name}
-                            error={error !== undefined}
-                            labelWidth={100}
+                            labelWidth={0}
                         />
                     }
                     >
@@ -56,7 +67,7 @@ const CurrencySelect = ({name, label, onChange, onFocus, placeholder, value, err
                         )
                     })}
                 </Select>
-            </div>
+            </FormControl>
     );
 };
 
@@ -69,4 +80,4 @@ CurrencySelect.propTypes = {
     value: PropTypes.string
 };
 
-export default CurrencySelect;
+export default withStyles(styles)(CurrencySelect);

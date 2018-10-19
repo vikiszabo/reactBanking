@@ -1,33 +1,42 @@
-import React  from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import TextField from "@material-ui/core/TextField/TextField";
 import InputAdornment from "@material-ui/core/InputAdornment/InputAdornment";
+import {withStyles} from "@material-ui/core";
+import FormControl from "@material-ui/core/FormControl/FormControl";
+import AmountFormat from './AmountFormat'
 
 
-const AmountInput = ({name, label, onChange, onFocus, placeholder, value, error, ccy}) => {
-    let wrapperClass = 'form-group';
+const styles = theme => ({
+    formControl: {
+        minWidth: 120,
+        display: "inline"
+    },
 
+});
+
+
+const AmountInput = ({classes, name, label, onChange, onFocus, placeholder, value, error, ccy}) => {
     return (
-        <div className={wrapperClass}>
-            <div className="field">
-                <TextField
-                    fullWidth
-                    label={label}
-                    error={error !== undefined}
-                    helperText={error}
-                    variant="outlined"
-                    type="number"
-                    name={name}
-                    className="input"
-                    placeholder={placeholder}
-                    value={value}
-                    onFocus={onFocus}
-                    onChange={onChange}
-                    InputProps={{
-                        startAdornment: <InputAdornment position="start">{ccy}</InputAdornment>,
-                    }}/>
-            </div>
-        </div>
+        <FormControl className="field">
+            <TextField
+                fullWidth
+                label={label}
+                error={error !== undefined}
+                helperText={error}
+                variant="outlined"
+                // type="text"
+                name={name}
+                className={classes.formControl}
+                placeholder={placeholder}
+                value={value}
+                onFocus={onFocus}
+                onChange={onChange}
+                InputProps={{
+                    inputComponent: AmountFormat,
+                    startAdornment: <InputAdornment position="start">{ccy}</InputAdornment>,
+                }}/>
+        </FormControl>
     );
 };
 
@@ -37,9 +46,9 @@ AmountInput.propTypes = {
     onChange: PropTypes.func.isRequired,
     onFocus: PropTypes.func,
     placeholder: PropTypes.string,
-    value: PropTypes.number,
+    value: PropTypes.string,
     error: PropTypes.string,
     ccy: PropTypes.string
 };
 
-export default AmountInput;
+export default withStyles(styles)(AmountInput);

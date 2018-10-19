@@ -1,25 +1,32 @@
-import React, {Component} from 'react';
+import React from 'react';
 import AmountInput from "../../../../UI/AmountInput";
 import CurrencySelect from "../../../../UI/CurrencySelect";
+import {withStyles} from "@material-ui/core";
 
- const PaymentDetails = ({ccy, amount, onChange}) =>(
-        <form>
+const styles = theme => ({
+    root: {
+        display: 'inline',
+        flexWrap: 'wrap',
+    }
+});
+
+ const PaymentDetails = ({classes, ccy, amount, onChange}) =>(
+        <div className={classes.root}>
             <CurrencySelect
                 name="ccy"
                 label="Currency"
                 value={ccy}
                 onChange={onChange}
             />
-            <br/>
             <AmountInput
                 name="amount"
-                value={+amount}
+                value={amount}
                 ccy={ccy}
                 label="Amount"
                 onChange={onChange}
             />
-        </form>
+        </div>
     );
 
 
-export default PaymentDetails;
+export default withStyles(styles)(PaymentDetails);

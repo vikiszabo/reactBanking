@@ -3,7 +3,6 @@ import './App.css';
 import Example from "./Example/Example";
 import Transactions from "./Transaction/Transactions";
 import {Router} from "@reach/router";
-import NewTransactionForm from "./Transaction/NewTransaction/NewTransactionForm";
 import Navigation from "./UI/Navigation";
 import NewTransaction from "./Transaction/NewTransaction/NewTransaction";
 

@@ -32,27 +32,15 @@ function getSteps() {
     return ['Payment details', 'Recipient details', 'Other details'];
 }
 
-
 class VerticalLinearStepper extends React.Component {
-
-
     constructor(props) {
         super(props);
         this.state = {
             activeStep: 0,
             account: '',
-            amount: '',
-            ccy: ''
+            amount: "1000",
+            ccy: '$'
         };
-        this.stepsContents = [
-            <PaymentDetails
-                amount={this.state.amount}
-                ccy={this.state.ccy}
-                onChange={this.onChange}
-            />,
-            <RecipientDetails/>,
-            <OtherDetails/>
-        ];
     }
 
     onChange = (e) => {
@@ -60,7 +48,6 @@ class VerticalLinearStepper extends React.Component {
             [e.target.name]: e.target.value
         });
     };
-
 
     handleNext = () => {
         this.setState(state => ({
@@ -84,6 +71,15 @@ class VerticalLinearStepper extends React.Component {
         const {classes} = this.props;
         const steps = getSteps();
         const {activeStep} = this.state;
+        const stepContents = [
+            <PaymentDetails
+                amount={this.state.amount}
+                ccy={this.state.ccy}
+                onChange={this.onChange}
+            />,
+            <RecipientDetails/>,
+            <OtherDetails/>
+        ];
 
         return (
             <div className={classes.root}>
@@ -94,7 +90,7 @@ class VerticalLinearStepper extends React.Component {
                                 <StepLabel>{label}</StepLabel>
                                 <StepContent>
                                     <div>
-                                        {this.stepsContents[index]}
+                                        {stepContents[index]}
                                     </div>
                                     <div className={classes.actionsContainer}>
                                         <div>
