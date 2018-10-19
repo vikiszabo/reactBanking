@@ -8,6 +8,7 @@ import Popper from '@material-ui/core/Popper';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
 import { withStyles } from '@material-ui/core/styles';
+import {Link} from "@reach/router";
 
 const styles = theme => ({
     root: {
@@ -63,7 +64,12 @@ class MenuListComposition extends React.Component {
                                     <ClickAwayListener onClickAway={this.handleClose}>
 
                                         <MenuList>
-                                            <MenuItem onClick={this.handleClose}>Balance Details</MenuItem>
+                                            <Link to="/savingsaccount">
+                                            <MenuItem onClick={this.handleClose}>
+                                                    Balance Details
+
+                                            </MenuItem>
+                                            </Link>
                                             <MenuItem onClick={this.handleClose}>Last Transactions</MenuItem>
                                             <MenuItem onClick={this.handleClose}>Projected Benefits</MenuItem>
                                         </MenuList>

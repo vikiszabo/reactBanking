@@ -15,11 +15,8 @@ export default function () {
     const links = [
         {icon: <SendSharp/>, label: "Transactions", url: "/transactions"},
         {icon: <Add />, label: "New Transaction", url: "/new-transaction"},
-        {icon: <AccountBalanceWallet/>, label: "Savings Accounts", url: "/savingsaccount"},
-        {icon: <PlusOne />, label: "Add New Savings", url: "/new-savings"},
         {icon: <AccountBalanceWallet/>, label: "Accounts", url: "/accounts"},
         {icon: <SendIcon/>, label: "Send", url: "/"},
-        {icon: <DraftsIcon/>, label: "Drafts", url: "/"}
     ];
     return (
         <div>

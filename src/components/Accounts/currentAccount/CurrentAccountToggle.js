@@ -65,7 +65,7 @@ class MenuListComposition extends React.Component {
                                         <MenuList>
                                             <MenuItem onClick={this.handleClose}>Balance Details</MenuItem>
                                             <MenuItem onClick={this.handleClose}>Last Transactions</MenuItem>
-                                            <MenuItem onClick={this.handleClose}>Saving Tips</MenuItem>
+                                            <MenuItem onClick={this.handleClose}>Savings Tips</MenuItem>
                                         </MenuList>
                                     </ClickAwayListener>
                                 </Paper>
