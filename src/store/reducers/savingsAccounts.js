@@ -1,7 +1,7 @@
 const savingsAccounts = (state = [], action) => {
     switch (action.type) {
         case 'LOAD_SAVINGS_ACCOUNTS':
-            return action.savingsAccount;
+            return action.savingsAccounts;
         default:
             return state;
     }
