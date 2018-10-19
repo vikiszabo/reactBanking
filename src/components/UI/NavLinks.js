@@ -7,13 +7,15 @@ import DraftsIcon from '@material-ui/icons/Drafts';
 import Add from '@material-ui/icons/Add';
 import SendIcon from '@material-ui/icons/Send';
 import {Link} from "@reach/router";
+import AccountBalanceWallet from '@material-ui/icons/AccountBalanceWallet';
+import PlusOne from '@material-ui/icons/PlusOne';
 
 export default function () {
     const links = [
         {icon: <SendSharp/>, label: "Transactions", url: "/transactions"},
-        {icon: <Add/>, label: "New Transaction", url: "/new-transaction"},
-        {icon: <SendIcon/>, label: "Savings Accounts", url: "/savingsaccount"},
-        {icon: <Add/>, label: "New Savings Account", url: "/new-savingsaccount"},
+        {icon: <Add />, label: "New Transaction", url: "/new-transaction"},
+        {icon: <AccountBalanceWallet/>, label: "Savings Accounts", url: "/savingsaccount"},
+        {icon: <PlusOne />, label: "New Savings Account", url: "/new-savingsaccount"},
         {icon: <SendIcon/>, label: "Send", url: "/"},
         {icon: <DraftsIcon/>, label: "Drafts", url: "/"}
     ];
