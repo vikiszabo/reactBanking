@@ -1,11 +1,39 @@
 {
   "transactions": [
-    { "id": 1, "sender": "Juli", "recipient": "Jolán", "amount": 1000, "currency":"USD", "timestamp": 123  },
-    { "id": 2, "sender": "Béla", "recipient": "Zoli", "amount": 300, "currency":"GBP", "timestamp": 123  },
-    { "id": 3, "sender": "Dezső", "recipient": "Józsi", "amount": 4234234, "currency":"HUF", "timestamp": 123  },
-    { "id": 4, "sender": "Géua", "recipient": "Rozi", "amount": 1000, "currency":"USD", "timestamp": 123  }
+    {
+      "id": 1,
+      "sender": "Juli",
+      "recipient": "Jolán",
+      "amount": 1000,
+      "currency": "USD",
+      "timestamp": 123
+    },
+    {
+      "id": 2,
+      "sender": "Béla",
+      "recipient": "Zoli",
+      "amount": 300,
+      "currency": "GBP",
+      "timestamp": 123
+    },
+    {
+      "id": 3,
+      "sender": "Dezső",
+      "recipient": "Józsi",
+      "amount": 4234234,
+      "currency": "HUF",
+      "timestamp": 123
+    },
+    {
+      "id": 4,
+      "sender": "Géua",
+      "recipient": "Rozi",
+      "amount": 1000,
+      "currency": "USD",
+      "timestamp": 123
+    }
   ],
-
+  /*
   "savingsAccounts": [
     { "id": 1, "owner": "Zoli", "balance": 1000, "currency": "USD", "timestamp": 123},
     { "id": 2, "owner": "Gizi", "balance": 3000, "currency": "EUR", "timestamp": 123},
@@ -20,64 +48,80 @@
     { "id": 3, "owner": "Tomi", "balance": 2000, "currency": "HUF", "timestamp": 123},
     { "id": 4, "owner": "Gida", "balance": 7000, "currency": "GBP", "timestamp": 123}
   ]
+*/
 
-  /*
   "accounts": [
-    { "id": 1, "owner": "Zoli",
-      "SavingsAccount": [
+    {
+      "id": 1,
+      "owner": "Zoli",
+      "savingsAccount": [
         {
-          "balance": 1000, "currency": "USD", "timestamp": 123
+          "balance": 1000,
+          "currency": "USD",
+          "timestamp": 123
         }
       ],
       "currentAccount": [
         {
-          "balance": 20000, "currency": "HUF", "timpestamp":123
+          "balance": 20000,
+          "currency": "HUF",
+          "timpestamp": 123
         }
-
       ]
     },
-
-    { "id": 2, "owner": "Gizi",
-      "SavingsAccount": [
+    {
+      "id": 2,
+      "owner": "Gizi",
+      "savingsAccount": [
         {
-          "balance": 1000, "currency": "USD", "timestamp": 123
+          "balance": 1000,
+          "currency": "USD",
+          "timestamp": 123
         }
       ],
       "currentAccount": [
         {
-          "balance": 20000, "currency": "HUF", "timpestamp":123
+          "balance": 20000,
+          "currency": "HUF",
+          "timpestamp": 123
         }
-
       ]
     },
-
-    { "id": 3, "owner": "Tomi",
-      "SavingsAccount": [
+    {
+      "id": 3,
+      "owner": "Tomi",
+      "savingsAccount": [
         {
-          "balance": 3000, "currency": "EUR", "timestamp": 123
+          "balance": 3000,
+          "currency": "EUR",
+          "timestamp": 123
         }
       ],
       "currentAccount": [
         {
-          "balance": 20000, "currency": "USD", "timestamp":123
+          "balance": 20000,
+          "currency": "USD",
+          "timestamp": 123
         }
-
       ]
     },
-
-    { "id": 4, "owner": "Gida",
-      "SavingsAccount": [
+    {
+      "id": 4,
+      "owner": "Gida",
+      "savingsAccount": [
         {
-          "balance": 500, "currency": "USD", "timestamp": 123
+          "balance": 500,
+          "currency": "USD",
+          "timestamp": 123
         }
       ],
       "currentAccount": [
         {
-          "balance": 30000, "currency": "HUF", "timestamp":123
+          "balance": 30000,
+          "currency": "HUF",
+          "timestamp": 123
         }
-
       ]
     }
-
-  ] */
+  ]
 }

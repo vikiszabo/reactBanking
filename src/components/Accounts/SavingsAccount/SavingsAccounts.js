@@ -11,7 +11,7 @@ class SavingsAccounts extends Component {
     render() {
         return (
             <div>
-                <h2>Savings Account:</h2>
+                <h2>My Savings Account:</h2>
                 <ul>
                     {this.props.savingsAccounts.map(sva => {
                         return (
@@ -19,7 +19,7 @@ class SavingsAccounts extends Component {
                         )
                     })}
                 </ul>
-                <Link to="/new-savingsaccount">New Savings Account</Link>
+                <Link to="/bond-details">Bond Details</Link>
                 {this.props.children}
             </div>
         );

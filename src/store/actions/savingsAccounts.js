@@ -3,7 +3,7 @@ const svaURL = "http://localhost:8000/savingsaccount";
 
 export function loadSavingsSuccess(savingsAccounts) {
     return {
-        type: 'LOAD_SAVINGSACCOUNTS',
+        type: 'LOAD_SAVINGS_ACCOUNTS',
         savingsAccounts: savingsAccounts
     }
 }
