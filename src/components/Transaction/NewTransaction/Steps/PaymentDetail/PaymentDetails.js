@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import AmountInput from "../../../../UI/AmountInput";
 import CurrencySelect from "../../../../UI/CurrencySelect";
 

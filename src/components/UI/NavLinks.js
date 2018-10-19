@@ -3,13 +3,11 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import SendSharp from '@material-ui/icons/Search';
-import DraftsIcon from '@material-ui/icons/Drafts';
 import Add from '@material-ui/icons/Add';
 import SendIcon from '@material-ui/icons/Send';
 import {Link} from "@reach/router";
 import AccountBalanceWallet from '@material-ui/icons/AccountBalanceWallet';
-import PlusOne from '@material-ui/icons/PlusOne';
-import AccountsPage from "../Accounts/AccountsPage";
+
 
 export default function () {
     const links = [

@@ -4,6 +4,7 @@ import rootReducer from "./reducers/rootReducer";
 import {loadTransactions} from "./actions/transactions";
 import {loadSavingsAccounts} from "./actions/savingsAccounts";
 import {loadAccounts} from "./actions/accountActions";
+import {loadCurrentAccounts} from "./actions/currentAccounts";
 
 export default  () => {
 
@@ -11,7 +12,7 @@ export default  () => {
 
     const store = createStore(rootReducer, ...enhancers);
 
-    store.dispatch(loadTransactions(), loadSavingsAccounts(), loadAccounts());
+    store.dispatch(loadTransactions(), loadSavingsAccounts(), loadAccounts(), loadCurrentAccounts());
 
     return store;
 }
