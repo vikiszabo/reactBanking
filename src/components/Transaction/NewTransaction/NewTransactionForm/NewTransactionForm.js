@@ -9,7 +9,7 @@ import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import LinearProgress from "@material-ui/core/LinearProgress/LinearProgress";
-import {getUserInputPanels} from "./UserInputPanels/index";
+import {getUserInputPanels} from "./UserInputPanels/UserInputPanels";
 import {validateNewTransferForm} from "../../../../utils/validators/validateNewTransferForm";
 
 

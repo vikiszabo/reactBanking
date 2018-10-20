@@ -22,15 +22,12 @@ export const validateAmount = (amount) => {
 };
 
 export const validateName = (name) => {
-    // if (/[^a-z]/i.test(name)) {
-    //     return "Should not contain any special character or number";
-    // }
 
     if (/\d/.test(name)) {
         return "Name should not contain numbers"
     }
 
-    var invalidChars = /[!@#^&*()_={}\[\]\\|:;“‘<>,?]/;
+    var invalidChars = /[!@#^&*()_={}[\]\\|:;+`•Ż∆&$ķ©ń∂ß|«»ć–;––…•Ż∆ķ©ń∂ß@ę¶€ę¶€ę†¶€ź†“‘<>,?]/;
 
     if (name.match(invalidChars)) {
         return "Contains invalid character(s)"

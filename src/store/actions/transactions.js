@@ -1,12 +1,12 @@
-
 const txnURL = "http://localhost:8000/transactions";
 
 export function loadTransactionsSuccess(transactions) {
     return {
         type: 'LOAD_TRANSACTIONS',
-        transactions: transactions
+        transactions
     }
 }
+
 
 export function loadTransactions() {
     return function (dispatch) {
@@ -16,3 +16,5 @@ export function loadTransactions() {
             .catch(error => console.log(error))
     }
 }
+
+

@@ -6,10 +6,9 @@ import {Router} from "@reach/router";
 import Navigation from "./UI/Navigation/Navigation";
 import NewTransaction from "./Transaction/NewTransaction/NewTransaction";
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faGhost, faList, faPlus, } from '@fortawesome/free-solid-svg-icons'
+import { faGhost, faList, faPlus, faCalendarAlt } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faGhost, faList, faPlus);
+library.add(faGhost, faList, faPlus, faCalendarAlt);
 
 class App extends Component {
     render() {

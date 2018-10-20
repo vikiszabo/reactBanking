@@ -18,6 +18,10 @@ export const currencies = [
     {
         "value": "JPY",
         "label": "¥"
+    },
+    {
+        "value": "HUF",
+        "label": "Ft"
     }
 ];
 

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 const styles = theme => ({
     container: {
@@ -12,6 +13,10 @@ const styles = theme => ({
         marginLeft: theme.spacing.unit,
         marginRight: theme.spacing.unit
     },
+    icon: {
+        marginRight: theme.spacing.unit,
+        color: 'grey'
+    }
 });
 
 function DateTimePicker(props) {
@@ -31,6 +36,11 @@ function DateTimePicker(props) {
                 type="datetime-local"
                 onChange={onChange}
                 className={classes.textField}
+                InputProps={{
+                    startAdornment: <FontAwesomeIcon
+                        icon="calendar-alt"
+                        size="lg" className={classes.icon}/>,
+                }}
                 InputLabelProps={{
                     shrink: true,
                 }}

@@ -1,8 +1,9 @@
 {
   "transactions": [
-    { "id": 1, "sender": "Juli", "recipient": "Jolán", "amount": 1000, "currency":"USD", "timestamp": 123  },
-    { "id": 2, "sender": "Béla", "recipient": "Zoli", "amount": 300, "currency":"GBP", "timestamp": 123  },
-    { "id": 3, "sender": "Dezső", "recipient": "Józsi", "amount": 4234234, "currency":"HUF", "timestamp": 123  },
-    { "id": 4, "sender": "Géua", "recipient": "Rozi", "amount": 1000, "currency":"USD", "timestamp": 123  }
+    { "id": 1, "amount": "100", "recipientName": "Jolán", "recipientAccount": 1000, "ccy":"USD", "timing": ""  },
+    { "id": 2, "amount": "100", "recipientName": "Jolán", "recipientAccount": 1000, "ccy":"USD", "timing": ""  }
+  ],
+  "partners": [
+    {"id":1, "account": "2332-3232-3232-3232", "name": "Nagy Ádám"}
   ]
 }
