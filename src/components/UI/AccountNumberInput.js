@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import AccountFormat from "./AccountFormat"
 import TextField from "@material-ui/core/TextField/TextField";
 import {withStyles} from "@material-ui/core";
 
@@ -12,22 +13,25 @@ const styles = theme => ({
 
 });
 
-const TextInput = ({classes, name, label, onChange, onFocus, placeholder, value, error}) => {
 
+
+const TextInput = ({classes, name, label, onChange, onFocus, placeholder, value, error}) => {
     return (
         <TextField
-            className={classes.textField}
             fullWidth
             label={label}
             error={error !== undefined}
             helperText={error}
             variant="outlined"
-            type="text"
             name={name}
+            className={classes.textField}
             placeholder={placeholder}
             value={value}
             onFocus={onFocus}
-            onChange={onChange}/>
+            onChange={onChange}
+            InputProps={{
+                inputComponent: AccountFormat,
+            }}/>
     );
 };
 

@@ -10,7 +10,7 @@ const styles = theme => ({
     }
 });
 
- const PaymentDetails = ({classes, ccy, amount, onChange}) =>(
+ const PaymentDetails = ({classes, ccy, amount, onChange, errors, onBlur}) =>(
         <div className={classes.root}>
             <CurrencySelect
                 name="ccy"
@@ -19,11 +19,13 @@ const styles = theme => ({
                 onChange={onChange}
             />
             <AmountInput
+                error={errors.amount}
                 name="amount"
                 value={amount}
                 ccy={ccy}
                 label="Amount"
                 onChange={onChange}
+                onBlur={onBlur}
             />
         </div>
     );

@@ -11,6 +11,9 @@ import Typography from '@material-ui/core/Typography';
 import PaymentDetails from "./Steps/PaymentDetail/PaymentDetails";
 import RecipientDetails from "./Steps/RecipientDetail/RecipientDetails"
 import OtherDetails from "./Steps/OtherDetail/OtherDetails"
+import LinearProgress from "@material-ui/core/LinearProgress/LinearProgress";
+import {validateAccountNumber, validateAmount, validateName, validateTime} from "../../../utils/validators";
+import TransferSummary from "./Steps/TransferSummary";
 
 const styles = theme => ({
     root: {
@@ -29,7 +32,7 @@ const styles = theme => ({
 });
 
 function getSteps() {
-    return ['Payment details', 'Recipient details', 'Other details'];
+    return ['Payment details', 'Recipient details', 'Other details', 'Transfer Summary'];
 }
 
 class VerticalLinearStepper extends React.Component {
@@ -37,22 +40,81 @@ class VerticalLinearStepper extends React.Component {
         super(props);
         this.state = {
             activeStep: 0,
+            errors: {},
             account: '',
             amount: "1000",
-            ccy: '$'
+            ccy: '$',
+            recipientName: '',
+            recipientAccount: '',
+            toSaveRecipient: false,
+            toSaveToTemplate: false,
+            transferNow: 'True',
+            timing: ''
         };
     }
 
     onChange = (e) => {
-        this.setState({
-            [e.target.name]: e.target.value
-        });
+        switch (e.target.name) {
+            case "toSaveToTemplate":
+                this.setState({
+                    [e.target.name]: e.target.checked
+                });
+                return;
+            case "toSaveRecipient":
+                this.setState({
+                    [e.target.name]: e.target.checked
+                });
+                return;
+            case "transferNow":
+                this.setState({
+                    [e.target.name]: e.target.checked
+                });
+                return;
+            default:
+                this.setState({
+                    [e.target.name]: e.target.value
+                });
+                return;
+        }
     };
 
+
     handleNext = () => {
-        this.setState(state => ({
-            activeStep: state.activeStep + 1,
-        }));
+        let errors = {};
+        switch (this.state.activeStep) {
+            case 0:
+                if (validateAmount(this.state.amount)) {
+                    errors.amount = validateAmount(this.state.amount)
+                }
+                break;
+            case 1:
+                if (validateName(this.state.recipientName)) {
+                    errors.recipientName = validateName(this.state.recipientName)
+                }
+
+                if (validateAccountNumber(this.state.recipientAccount)) {
+                    errors.recipientAccount = validateAccountNumber(this.state.recipientAccount)
+                }
+                break;
+            case 2:
+                if (!this.state.transferNow) {
+                    if (validateTime(this.state.timing)) {
+                        errors.timing = validateTime(this.state.timing)
+                    }
+                }
+                break;
+            default:
+                console.log(this.state.activeStep)
+        }
+
+        this.setState({errors: errors}, ()=> {
+            if (Object.keys(this.state.errors).length === 0) {
+                this.setState(state => ({
+                    activeStep: state.activeStep + 1,
+                }));
+            }
+        });
+
     };
 
     handleBack = () => {
@@ -61,11 +123,6 @@ class VerticalLinearStepper extends React.Component {
         }));
     };
 
-    handleReset = () => {
-        this.setState({
-            activeStep: 0,
-        });
-    };
 
     render() {
         const {classes} = this.props;
@@ -76,9 +133,25 @@ class VerticalLinearStepper extends React.Component {
                 amount={this.state.amount}
                 ccy={this.state.ccy}
                 onChange={this.onChange}
+                errors={this.state.errors}
             />,
-            <RecipientDetails/>,
-            <OtherDetails/>
+            <RecipientDetails
+                recipientName={this.state.recipientName}
+                toSaveRecipient={this.state.toSaveRecipient}
+                recipientAccount={this.state.recipientAccount}
+                onChange={this.onChange}
+                errors={this.state.errors}
+            />,
+            <OtherDetails
+                toSaveToTemplate={this.state.toSaveToTemplate}
+                transferNow={this.state.transferNow}
+                timing={this.state.timing}
+                onChange={this.onChange}
+                errors={this.state.errors}
+            />,
+            <TransferSummary
+                transferDetails={this.state}
+            />
         ];
 
         return (
@@ -107,7 +180,7 @@ class VerticalLinearStepper extends React.Component {
                                                 onClick={this.handleNext}
                                                 className={classes.button}
                                             >
-                                                {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
+                                                {activeStep === steps.length - 1 ? 'Transfer' : 'Next'}
                                             </Button>
                                         </div>
                                     </div>
@@ -118,10 +191,8 @@ class VerticalLinearStepper extends React.Component {
                 </Stepper>
                 {activeStep === steps.length && (
                     <Paper square elevation={0} className={classes.resetContainer}>
-                        <Typography>All steps completed - you&quot;re finished</Typography>
-                        <Button onClick={this.handleReset} className={classes.button}>
-                            Reset
-                        </Button>
+                        <Typography>Transferring in progress...</Typography>
+                        <LinearProgress/>
                     </Paper>
                 )}
             </div>

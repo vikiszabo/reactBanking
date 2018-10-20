@@ -14,12 +14,14 @@ const styles = theme => ({
     formControl: {
         margin: theme.spacing.unit,
         minWidth: 120,
-        display: 'inline'
+        display: 'block'
     },
     selectEmpty: {
         marginTop: theme.spacing.unit * 2,
     },
 });
+
+
 
 const CurrencySelect = ({classes, name, label, onChange, onFocus, placeholder, value}) => {
 
@@ -39,11 +41,12 @@ const CurrencySelect = ({classes, name, label, onChange, onFocus, placeholder, v
         {
             value: 'JPY',
             label: '¥',
-        },
+        }
     ];
     return (
             <FormControl variant="outlined" className={classes.formControl}>
                 <Select
+                    autoWidth={true}
                     variant="outlined"
                     value={value}
                     onChange={onChange}

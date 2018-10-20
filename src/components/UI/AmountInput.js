@@ -8,26 +8,26 @@ import AmountFormat from './AmountFormat'
 
 
 const styles = theme => ({
-    formControl: {
-        minWidth: 120,
+    textField: {
+        margin: theme.spacing.unit,
+        minWidth: 60,
         display: "inline"
     },
-
 });
 
 
-const AmountInput = ({classes, name, label, onChange, onFocus, placeholder, value, error, ccy}) => {
+
+const AmountInput = ({classes, name, label, onChange, onBlur, onFocus, placeholder, value, error, ccy}) => {
     return (
         <FormControl className="field">
             <TextField
+                className={classes.textField}
                 fullWidth
                 label={label}
                 error={error !== undefined}
                 helperText={error}
                 variant="outlined"
-                // type="text"
                 name={name}
-                className={classes.formControl}
                 placeholder={placeholder}
                 value={value}
                 onFocus={onFocus}
