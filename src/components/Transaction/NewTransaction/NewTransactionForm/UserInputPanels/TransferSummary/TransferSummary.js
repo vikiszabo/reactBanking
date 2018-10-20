@@ -11,7 +11,7 @@ const TransferSummary = ({transferDetails}) => {
         {label: "Recipient's name", value: transferDetails.recipientName},
         {label: "Recipient's account", value: transferDetails.recipientAccount},
         {label: "Amount to transfer", value: transferDetails.ccy + " " + transferDetails.amount},
-    ]
+    ];
 
     return (
         <Paper>

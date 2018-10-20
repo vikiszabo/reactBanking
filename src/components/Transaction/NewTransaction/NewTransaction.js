@@ -1,5 +1,5 @@
 import React from 'react';
-import NewTransactionForm from "./NewTransactionForm";
+import NewTransactionForm from "./NewTransactionForm/NewTransactionForm";
 
 const NewTransaction = () => {
     return (

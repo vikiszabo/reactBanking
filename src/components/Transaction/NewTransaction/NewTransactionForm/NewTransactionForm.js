@@ -8,12 +8,10 @@ import StepContent from '@material-ui/core/StepContent';
 import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
-import PaymentDetails from "./Steps/PaymentDetail/PaymentDetails";
-import RecipientDetails from "./Steps/RecipientDetail/RecipientDetails"
-import OtherDetails from "./Steps/OtherDetail/OtherDetails"
 import LinearProgress from "@material-ui/core/LinearProgress/LinearProgress";
-import {validateAccountNumber, validateAmount, validateName, validateTime} from "../../../utils/validators";
-import TransferSummary from "./Steps/TransferSummary";
+import {validateAccountNumber, validateAmount, validateName, validateTime} from "../../../../utils/validators/index";
+import {getUserInputPanels} from "./UserInputPanels/index";
+
 
 const styles = theme => ({
     root: {
@@ -128,31 +126,8 @@ class VerticalLinearStepper extends React.Component {
         const {classes} = this.props;
         const steps = getSteps();
         const {activeStep} = this.state;
-        const stepContents = [
-            <PaymentDetails
-                amount={this.state.amount}
-                ccy={this.state.ccy}
-                onChange={this.onChange}
-                errors={this.state.errors}
-            />,
-            <RecipientDetails
-                recipientName={this.state.recipientName}
-                toSaveRecipient={this.state.toSaveRecipient}
-                recipientAccount={this.state.recipientAccount}
-                onChange={this.onChange}
-                errors={this.state.errors}
-            />,
-            <OtherDetails
-                toSaveToTemplate={this.state.toSaveToTemplate}
-                transferNow={this.state.transferNow}
-                timing={this.state.timing}
-                onChange={this.onChange}
-                errors={this.state.errors}
-            />,
-            <TransferSummary
-                transferDetails={this.state}
-            />
-        ];
+        let stepContents = getUserInputPanels(this.state, this.onChange);
+
 
         return (
             <div className={classes.root}>
