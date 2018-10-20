@@ -1,7 +1,7 @@
 import React from 'react';
 import {withStyles} from "@material-ui/core";
-import TextInput from "../../../../../UI/TextInput";
-import AccountNumberInput from "../../../../../UI/AccountNumberInput";
+import TextInput from "../../../../../UI/TextInput/TextInput";
+import AccountNumberInput from "../../../../../UI/AccountNumberInput/AccountNumberInput";
 import Switch from "@material-ui/core/Switch/Switch";
 import FormControlLabel from "@material-ui/core/FormControlLabel/FormControlLabel";
 

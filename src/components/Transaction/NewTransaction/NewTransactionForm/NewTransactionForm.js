@@ -9,8 +9,8 @@ import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import LinearProgress from "@material-ui/core/LinearProgress/LinearProgress";
-import {validateAccountNumber, validateAmount, validateName, validateTime} from "../../../../utils/validators/index";
 import {getUserInputPanels} from "./UserInputPanels/index";
+import {validateNewTransferForm} from "../../../../utils/validators/validateNewTransferForm";
 
 
 const styles = theme => ({
@@ -52,67 +52,30 @@ class VerticalLinearStepper extends React.Component {
     }
 
     onChange = (e) => {
-        switch (e.target.name) {
-            case "toSaveToTemplate":
-                this.setState({
-                    [e.target.name]: e.target.checked
-                });
-                return;
-            case "toSaveRecipient":
-                this.setState({
-                    [e.target.name]: e.target.checked
-                });
-                return;
-            case "transferNow":
-                this.setState({
-                    [e.target.name]: e.target.checked
-                });
-                return;
-            default:
-                this.setState({
-                    [e.target.name]: e.target.value
-                });
-                return;
+        if (e.target.name === "toSaveToTemplate" ||
+            e.target.name === "toSaveRecipient" ||
+            e.target.name === "transferNow") {
+            this.setState({
+                [e.target.name]: e.target.checked
+            });
+        } else {
+            this.setState({
+                [e.target.name]: e.target.value
+            });
         }
     };
 
-
     handleNext = () => {
-        let errors = {};
-        switch (this.state.activeStep) {
-            case 0:
-                if (validateAmount(this.state.amount)) {
-                    errors.amount = validateAmount(this.state.amount)
-                }
-                break;
-            case 1:
-                if (validateName(this.state.recipientName)) {
-                    errors.recipientName = validateName(this.state.recipientName)
-                }
 
-                if (validateAccountNumber(this.state.recipientAccount)) {
-                    errors.recipientAccount = validateAccountNumber(this.state.recipientAccount)
-                }
-                break;
-            case 2:
-                if (!this.state.transferNow) {
-                    if (validateTime(this.state.timing)) {
-                        errors.timing = validateTime(this.state.timing)
-                    }
-                }
-                break;
-            default:
-                console.log(this.state.activeStep)
-        }
+        const errors = validateNewTransferForm(this.state);
 
-        this.setState({errors: errors}, ()=> {
+        this.setState({errors: errors}, () => {
             if (Object.keys(this.state.errors).length === 0) {
                 this.setState(state => ({
                     activeStep: state.activeStep + 1,
                 }));
             }
         });
-
     };
 
     handleBack = () => {
@@ -127,7 +90,6 @@ class VerticalLinearStepper extends React.Component {
         const steps = getSteps();
         const {activeStep} = this.state;
         let stepContents = getUserInputPanels(this.state, this.onChange);
-
 
         return (
             <div className={classes.root}>

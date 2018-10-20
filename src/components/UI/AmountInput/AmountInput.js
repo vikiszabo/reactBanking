@@ -4,7 +4,7 @@ import TextField from "@material-ui/core/TextField/TextField";
 import InputAdornment from "@material-ui/core/InputAdornment/InputAdornment";
 import {withStyles} from "@material-ui/core";
 import FormControl from "@material-ui/core/FormControl/FormControl";
-import AmountFormat from './AmountFormat'
+import AmountFormat from '../../../utils/formatters/AmountFormat'
 
 
 const styles = theme => ({

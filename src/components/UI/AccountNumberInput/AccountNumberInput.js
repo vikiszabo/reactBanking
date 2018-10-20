@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import AccountFormat from "./AccountFormat"
+import AccountFormat from "../../../utils/formatters/AccountFormat"
 import TextField from "@material-ui/core/TextField/TextField";
 import {withStyles} from "@material-ui/core";
 

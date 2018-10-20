@@ -1,6 +1,6 @@
 import React from 'react';
-import AmountInput from "../../../../../UI/AmountInput";
-import CurrencySelect from "../../../../../UI/CurrencySelect";
+import AmountInput from "../../../../../UI/AmountInput/AmountInput";
+import CurrencySelect from "../../../../../UI/CurrencySelect/CurrencySelect";
 import {withStyles} from "@material-ui/core";
 
 const styles = theme => ({

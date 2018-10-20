@@ -5,6 +5,7 @@ import Select from "@material-ui/core/Select/Select";
 import OutlinedInput from "@material-ui/core/OutlinedInput/OutlinedInput";
 import FormControl from "@material-ui/core/FormControl/FormControl";
 import {withStyles} from "@material-ui/core";
+import * as constants from "../../../utils/constants/constants"
 
 
 const styles = theme => ({
@@ -25,24 +26,7 @@ const styles = theme => ({
 
 const CurrencySelect = ({classes, name, label, onChange, onFocus, placeholder, value}) => {
 
-    const currencies = [
-        {
-            value: 'USD',
-            label: '$',
-        },
-        {
-            value: 'EUR',
-            label: '€',
-        },
-        {
-            value: 'BTC',
-            label: '฿',
-        },
-        {
-            value: 'JPY',
-            label: '¥',
-        }
-    ];
+    const currencies = constants.currencies;
     return (
             <FormControl variant="outlined" className={classes.formControl}>
                 <Select

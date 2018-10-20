@@ -2,7 +2,7 @@ import React from 'react';
 import FormControlLabel from "@material-ui/core/FormControlLabel/FormControlLabel";
 import Switch from "@material-ui/core/Switch/Switch";
 import {withStyles} from "@material-ui/core";
-import DateTimePicker from "../../../../../UI/DateTimePicker";
+import DateTimePicker from "../../../../../UI/DateTimePicker/DateTimePicker";
 
 const styles = theme => ({
     root: {
