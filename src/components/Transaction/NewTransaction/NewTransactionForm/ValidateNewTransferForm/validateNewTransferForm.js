@@ -6,17 +6,17 @@ export const validateNewTransferForm = (state) => {
     let errors = {};
     switch (state.activeStep) {
         case 0:
-            if (validateAmount(state.amount)) {
-                errors.amount = validateAmount(state.amount)
-            }
-            break;
-        case 1:
             if (validateName(state.recipientName)) {
                 errors.recipientName = validateName(state.recipientName)
             }
 
             if (validateAccountNumber(state.recipientAccount)) {
                 errors.recipientAccount = validateAccountNumber(state.recipientAccount)
+            }
+            break;
+        case 1:
+            if (validateAmount(state.amount)) {
+                errors.amount = validateAmount(state.amount)
             }
             break;
         case 2:
