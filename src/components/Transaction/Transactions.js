@@ -6,22 +6,37 @@ import TableRow from "@material-ui/core/TableRow/TableRow";
 import TableHead from "@material-ui/core/TableHead/TableHead";
 import TableCell from "@material-ui/core/TableCell/TableCell";
 import Paper from "@material-ui/core/Paper/Paper";
-import Typography from "@material-ui/core/Typography/Typography";
-import {withStyles} from "@material-ui/core";
-
-function mapStateToProps(state) {
-    return {transactions: state.transactions};
-}
+import LinearProgress from "@material-ui/core/LinearProgress/LinearProgress";
 
 
 class Transactions extends Component {
 
+
+    componentWillMount() {
+        this.props.fetchTransactions();
+    }
+
     render() {
+        const {transactions, loading, error} = this.props.transactions;
+
+        if (loading) {
+            return (
+                <div>
+                    <div>Loading transactions...</div>
+                    <LinearProgress/>
+                </div>
+            )
+        } else if (error) {
+            return (
+                <div>Oops, error :/</div>
+            )
+        }
+
         return (
             <div>
-                <Typography variant="headline">
+                <h2>
                     Transaction history
-                </Typography>
+                </h2>
                 <Paper>
                     <Table>
                         <TableHead>
@@ -33,9 +48,9 @@ class Transactions extends Component {
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                            {this.props.transactions.map(txn => {
+                            {transactions.data.map(txn => {
                                 return (
-                                    <TableRow>
+                                    <TableRow key={txn.id}>
                                         <TableCell>
                                             {txn.recipientName}
                                         </TableCell>
@@ -59,6 +74,4 @@ class Transactions extends Component {
     }
 }
 
-export default connect(
-    mapStateToProps,
-)(Transactions);
+export default Transactions;

@@ -11,6 +11,7 @@ import Typography from '@material-ui/core/Typography';
 import LinearProgress from "@material-ui/core/LinearProgress/LinearProgress";
 import {getUserInputPanels} from "./UserInputPanels/UserInputPanels";
 import {validateNewTransferForm} from "../../../../utils/validators/validateNewTransferForm";
+import {newTransaction} from "../../../../store/actions/transactions";
 
 
 const styles = theme => ({
@@ -67,6 +68,11 @@ class VerticalLinearStepper extends React.Component {
 
     handleNext = () => {
 
+        console.log(this.props);
+        if (this.state.activeStep === getSteps().length-1) {
+            this.handleTransfer()
+        }
+
         const errors = validateNewTransferForm(this.state);
 
         this.setState({errors: errors}, () => {
@@ -84,12 +90,28 @@ class VerticalLinearStepper extends React.Component {
         }));
     };
 
+    handleTransfer = () => {
+        const newTransaction = {
+            amount: this.state.amount,
+            recipientName: this.state.recipientName,
+            recipientAccount: this.state.recipientAccount,
+            ccy: this.state.ccy,
+            timing: this.state.timing
+        };
+        this.props.createTransaction(newTransaction)
+    };
 
     render() {
-        const {classes} = this.props;
+        const {classes, newTransaction} = this.props;
         const steps = getSteps();
         const {activeStep} = this.state;
-        let stepContents = getUserInputPanels(this.state, this.onChange);
+        const stepContents = getUserInputPanels(this.state, this.onChange);
+
+        if (newTransaction.error) {
+            return (
+                <div>Oops, something went wrong....</div>
+            )
+        }
 
         return (
             <div className={classes.root}>
@@ -126,7 +148,7 @@ class VerticalLinearStepper extends React.Component {
                         );
                     })}
                 </Stepper>
-                {activeStep === steps.length && (
+                {activeStep === steps.length && (newTransaction.loading) && (
                     <Paper square elevation={0} className={classes.resetContainer}>
                         <Typography>Transferring in progress...</Typography>
                         <LinearProgress/>

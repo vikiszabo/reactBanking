@@ -10,7 +10,6 @@ export default  () => {
 
     const store = createStore(rootReducer, ...enhancers);
 
-    store.dispatch(loadTransactions());
     store.dispatch(loadPartners());
 
     return store;

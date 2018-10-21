@@ -1,9 +1,27 @@
 {
   "transactions": [
-    { "id": 1, "amount": "100", "recipientName": "Jolán", "recipientAccount": 1000, "ccy":"USD", "timing": ""  },
-    { "id": 2, "amount": "100", "recipientName": "Jolán", "recipientAccount": 1000, "ccy":"USD", "timing": ""  }
+    {
+      "id": 1,
+      "amount": "100",
+      "recipientName": "Jolán",
+      "recipientAccount": 1000,
+      "ccy": "USD",
+      "timing": ""
+    },
+    {
+      "amount": "1,000,234,723,423",
+      "recipientName": "Kutya Cica",
+      "recipientAccount": "8371 - 2371 - 2392 - 3123",
+      "ccy": "฿",
+      "timing": "2020-01-01T01:01",
+      "id": 2
+    }
   ],
   "partners": [
-    {"id":1, "account": "2332-3232-3232-3232", "name": "Nagy Ádám"}
+    {
+      "id": 1,
+      "account": "2332-3232-3232-3232",
+      "name": "Nagy Ádám"
+    }
   ]
 }
