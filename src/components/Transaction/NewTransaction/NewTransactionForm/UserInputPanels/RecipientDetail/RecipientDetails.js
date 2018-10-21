@@ -4,6 +4,7 @@ import TextInput from "../../../../../UI/TextInput/TextInput";
 import AccountNumberInput from "../../../../../UI/AccountNumberInput/AccountNumberInput";
 import Switch from "@material-ui/core/Switch/Switch";
 import FormControlLabel from "@material-ui/core/FormControlLabel/FormControlLabel";
+import TextSelect from "../../../../../UI/TextSelect/TextSelect";
 
 const styles = theme => ({
     root: {
@@ -12,32 +13,49 @@ const styles = theme => ({
     }
 });
 
-const RecipientDetails = ({classes, recipientName, recipientAccount, toSaveRecipient, onChange, errors}) => (
-    <div className={classes.root}>
-        <TextInput
-            value={recipientName}
-            name={"recipientName"}
-            label={"Firstname Lastname"}
-            onChange={onChange}
-            error={errors.recipientName}
-        />
-        <AccountNumberInput
-            value={recipientAccount}
-            onChange={onChange}
-            label={"Account number"}
-            name="recipientAccount"
-            error={errors.recipientAccount}
-        />
-        <FormControlLabel
-            control={<Switch
-                name={"toSaveRecipient"}
-                value="toSaveRecipient"
-                checked={toSaveRecipient}
+const RecipientDetails = ({classes, recipientPreset, recipientName, recipientAccount, partners, toSaveRecipient, onChange, errors}) => {
+
+    const frequentPartners = (
+        <div>
+            <TextSelect
+                name="recipientPreset"
+                label="Recipient from frequent partners"
+                value={recipientPreset}
+                textList={partners.partners}
                 onChange={onChange}
+            />
+        </div>
+    );
+
+    return (
+        <div className={classes.root}>
+            {!recipientPreset && frequentPartners}
+            <TextInput
+                value={recipientName}
+                name={"recipientName"}
+                label={"First-name Last-name"}
+                onChange={onChange}
+                error={errors.recipientName}
+            />
+            <AccountNumberInput
+                value={recipientAccount}
+                onChange={onChange}
+                label={"Account number"}
+                name="recipientAccount"
+                error={errors.recipientAccount}
+            />
+            {!recipientPreset &&
+            <FormControlLabel
+                control={<Switch
+                    name={"toSaveRecipient"}
+                    value="toSaveRecipient"
+                    checked={toSaveRecipient}
+                    onChange={onChange}
+                />}
+                label="Save to partners"
             />}
-            label="Save to partners"
-        />
-    </div>
-);
+        </div>
+    );
+};
 
 export default withStyles(styles)(RecipientDetails);

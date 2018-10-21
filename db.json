@@ -6,71 +6,71 @@
       "recipientName": "Jolán",
       "recipientAccount": 1000,
       "ccy": "USD",
+      "date": "2018-10-21T13:24:24.586Z",
       "timing": ""
     },
     {
-      "amount": "1,000,234,723,423",
-      "recipientName": "Kutya Cica",
-      "recipientAccount": "8371 - 2371 - 2392 - 3123",
-      "ccy": "฿",
-      "timing": "2020-01-01T01:01",
+      "amount": "1000",
+      "recipientName": "Valami Fél",
+      "recipientAccount": "333 - 33333 - 33333332",
+      "ccy": "$",
+      "timing": "",
+      "date": "2018-10-21T13:24:24.586Z",
       "id": 2
     },
     {
-      "amount": "122,000",
-      "recipientName": "Petőfi Sándor",
-      "recipientAccount": "4283 - 7423 - 4234 - 2342",
-      "ccy": "Ft",
-      "timing": "2020-01-01T01:01",
+      "amount": "100,010",
+      "recipientName": "Kovács Adél",
+      "recipientAccount": "123 - 45678 - 98765432",
+      "ccy": "฿",
+      "timing": "",
+      "date": "2018-10-21T13:24:24.586Z",
       "id": 3
     },
     {
-      "amount": "1000",
-      "recipientName": "Józyfsd IHfsdfgsdf",
-      "recipientAccount": "4723 - 8472 - 3984 - 2342",
+      "amount": "10,002,387,423,423",
+      "recipientName": "Kovács Adél",
+      "recipientAccount": "123 - 45678 - 98765432",
       "ccy": "$",
       "timing": "",
+      "date": "2018-10-21T13:24:24.586Z",
       "id": 4
     },
     {
-      "amount": "10,030",
-      "recipientName": "Bit Coin",
-      "recipientAccount": "3472 - 8397 - 4234 - 2342",
-      "ccy": "฿",
+      "amount": "1000",
+      "recipientName": "Kiss Zoli",
+      "recipientAccount": "3434-3232-3232-3232",
+      "ccy": "¥",
       "timing": "",
+      "date": "2018-10-21T13:24:24.586Z",
       "id": 5
     },
     {
-      "amount": "1000",
-      "recipientName": "fsdfs",
-      "recipientAccount": "2348 - 7238 - 4723 - 8472",
-      "ccy": "$",
-      "timing": "",
+      "amount": "10",
+      "recipientName": "Kossuth Lajos",
+      "recipientAccount": "237 - 23846 - 32179462",
+      "ccy": "€",
+      "timing": "2020-02-02T02:02",
+      "date": "2018-10-21T13:35:05.320Z",
       "id": 6
     },
     {
-      "amount": "1000",
-      "recipientName": "To XOu",
-      "recipientAccount": "3482 - 3748 - 2937 - 4289",
-      "ccy": "$",
-      "timing": "2020-02-02T02:02",
+      "amount": "100,000",
+      "recipientName": "Kossuth Lajos",
+      "recipientAccount": "237 - 23846 - 32179462",
+      "ccy": "฿",
+      "timing": "",
+      "date": "2018-10-21T13:35:42.903Z",
       "id": 7
     },
     {
       "amount": "1000",
-      "recipientName": "dfasdf ",
-      "recipientAccount": "3333 - 3333 - 3333 - 3333",
+      "recipientName": "Kovács Adél",
+      "recipientAccount": "123 - 45678 - 98765432",
       "ccy": "$",
       "timing": "",
+      "date": "2018-10-21T13:36:25.527Z",
       "id": 8
-    },
-    {
-      "amount": "1000",
-      "recipientName": "d",
-      "recipientAccount": "3274 - 8234 - 7283 - 4723",
-      "ccy": "$",
-      "timing": "",
-      "id": 9
     }
   ],
   "partners": [
@@ -78,6 +78,21 @@
       "id": 1,
       "account": "2332-3232-3232-3232",
       "name": "Nagy Ádám"
+    },
+    {
+      "id": 2,
+      "account": "3434-3232-3232-3232",
+      "name": "Kiss Zoli"
+    },
+    {
+      "name": "Kovács Adél",
+      "account": "123 - 45678 - 98765432",
+      "id": 3
+    },
+    {
+      "name": "Kossuth Lajos",
+      "account": "237 - 23846 - 32179462",
+      "id": 4
     }
   ]
 }

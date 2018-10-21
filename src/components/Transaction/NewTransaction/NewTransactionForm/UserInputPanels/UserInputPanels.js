@@ -5,19 +5,21 @@ import TransferSummary from "./TransferSummary/TransferSummary";
 import React from 'react';
 
 
-export const getUserInputPanels = (state, onChange) => {
+export const getUserInputPanels = (state, partners, onChange) => {
 
     const panels = [
+        <RecipientDetails
+                recipientName={state.recipientName}
+                toSaveRecipient={state.toSaveRecipient}
+                recipientAccount={state.recipientAccount}
+                partners={partners}
+                recipientPreset={state.recipientPreset}
+                onChange={onChange}
+                errors={state.errors}
+        />,
         <PaymentDetails
             amount={state.amount}
             ccy={state.ccy}
-            onChange={onChange}
-            errors={state.errors}
-        />,
-        <RecipientDetails
-            recipientName={state.recipientName}
-            toSaveRecipient={state.toSaveRecipient}
-            recipientAccount={state.recipientAccount}
             onChange={onChange}
             errors={state.errors}
         />,
@@ -34,4 +36,4 @@ export const getUserInputPanels = (state, onChange) => {
     ];
 
     return panels;
-};
+}

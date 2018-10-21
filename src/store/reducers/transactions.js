@@ -1,14 +1,4 @@
-import {
-    CREATE_TRANSACTION,
-    CREATE_TRANSACTION_FAILURE,
-    CREATE_TRANSACTION_SUCCESS,
-    FETCH_TRANSACTION, FETCH_TRANSACTION_FAILURE,
-    FETCH_TRANSACTION_SUCCESS,
-    FETCH_TRANSACTIONS,
-    FETCH_TRANSACTIONS_FAILURE,
-    FETCH_TRANSACTIONS_SUCCESS,
-    RESET_TRANSACTIONS
-} from "../actions/transactions";
+import * as actions from "../actions/actions"
 
 
 const INITIAL_STATE = {
@@ -22,27 +12,27 @@ const INITIAL_STATE = {
 const transactions = (state = INITIAL_STATE, action) => {
     let error;
     switch (action.type) {
-        case FETCH_TRANSACTIONS:
+        case actions.FETCH_TRANSACTIONS:
             return {...state, transactionList: {transactions: [], error: null, loading: true}};
-        case FETCH_TRANSACTIONS_SUCCESS:// return list of posts and make loading = false
+        case actions.FETCH_TRANSACTIONS_SUCCESS:
             return {...state, transactionList: {transactions: action.payload.data, error: null, loading: false}};
-        case FETCH_TRANSACTIONS_FAILURE:// return error and make loading = false
-            error = action.payload || {message: action.payload.message};//2nd one is network or server down errors
+        case actions.FETCH_TRANSACTIONS_FAILURE:
+            error = action.payload || {message: action.payload.message};
             return {...state, transactionList: {transactions: [], error: error, loading: false}};
-        case RESET_TRANSACTIONS:
+        case actions.RESET_TRANSACTIONS:
             return {...state, transactionList: {transactions: [], error: null, loading: false}};
-        case CREATE_TRANSACTION:
+        case actions.CREATE_TRANSACTION:
             return {...state, newTransaction: {transaction: null, error: null, loading: true}};
-        case CREATE_TRANSACTION_SUCCESS:
+        case actions.CREATE_TRANSACTION_SUCCESS:
             return {...state, newTransaction: {transaction: null, error: null, loading: false}};
-        case CREATE_TRANSACTION_FAILURE:
+        case actions.CREATE_TRANSACTION_FAILURE:
             return {...state, newTransaction: {transaction: null, error: error, loading: false}};
-        case FETCH_TRANSACTION:
+        case actions.FETCH_TRANSACTION:
             return {...state, activeTransaction: {transaction: {}, error: null, loading: true}};
-        case FETCH_TRANSACTION_SUCCESS:
+        case actions.FETCH_TRANSACTION_SUCCESS:
             return {...state, activeTransaction: {transaction: action.payload.data, error: null, loading: false}};
-        case FETCH_TRANSACTION_FAILURE:
-            error = action.payload || {message: action.payload.message}; //2nd one is network or server down errors
+        case actions.FETCH_TRANSACTION_FAILURE:
+            error = action.payload || {message: action.payload.message};
             return {...state, activeTransaction: {transaction: {}, error: error, loading: false}};
         default:
             return state;

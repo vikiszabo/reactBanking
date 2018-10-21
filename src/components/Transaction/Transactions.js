@@ -9,18 +9,18 @@ import {navigate} from "@reach/router";
 import Button from "@material-ui/core/Button/Button";
 import Loader from "../UI/Loader/Loader";
 
+
 class Transactions extends Component {
 
     componentWillMount() {
         this.props.fetchTransactions();
     }
 
-    onClick = (id) => {
+    navigateToTransactionDetail = (id) => {
         navigate("/transactions/" + id)
     };
 
-    navigateToNewTransaction = (e) => {
-        e.preventDefault();
+    navigateToNewTransaction = () => {
         navigate("/new-transaction")
     };
 
@@ -54,9 +54,11 @@ class Transactions extends Component {
                         </TableHead>
                         <TableBody>
                             {transactions.map(txn => {
+                                const date = new Date(txn.date);
+
                                 return (
                                     <TableRow hover key={txn.id} onClick={() => {
-                                        this.onClick(txn.id)
+                                        this.navigateToTransactionDetail(txn.id)
                                     }}>
                                         <TableCell>
                                             {txn.recipientName}
@@ -68,7 +70,7 @@ class Transactions extends Component {
                                             {txn.ccy}
                                         </TableCell>
                                         <TableCell>
-                                            {txn.date}
+                                            {date.toLocaleDateString()}
                                         </TableCell>
                                     </TableRow>
                                 )

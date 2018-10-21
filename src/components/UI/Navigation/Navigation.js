@@ -12,6 +12,7 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import getLinkList from './NavLinks';
 import List from "@material-ui/core/List/List";
+import ReduxToastr from "react-redux-toastr";
 
 const drawerWidth = 240;
 
@@ -135,6 +136,14 @@ class MiniDrawer extends React.Component {
                 <div className={classes.toolbar} />
                 <main className={classes.content}>
                     {this.props.children}
+                    <ReduxToastr
+                        timeOut={4000}
+                        newestOnTop={false}
+                        preventDuplicates
+                        position="bottom-right"
+                        transitionIn="fadeIn"
+                        transitionOut="fadeOut"
+                        closeOnToastrClick/>
                 </main>
             </div>
         );

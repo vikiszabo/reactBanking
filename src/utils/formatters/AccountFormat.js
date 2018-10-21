@@ -6,13 +6,12 @@ import PropTypes from 'prop-types';
 function AccountFormat(props) {
     const { inputRef, onChange, ...other } = props;
 
-
     return (
         <NumberFormat
             {...other}
             getInputRef={inputRef}
             onChange={onChange}
-            format={"#### - #### - #### - ####"}
+            format={"### - ##### - ########"}
         />
     );
 }

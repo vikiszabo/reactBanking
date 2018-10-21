@@ -29,7 +29,7 @@ const styles = theme => ({
 });
 
 function getSteps() {
-    return ['Payment details', 'Recipient details', 'Other details', 'Transfer Summary'];
+    return ['Recipient details', 'Payment details', 'Other details', 'Transfer Summary'];
 }
 
 class VerticalLinearStepper extends React.Component {
@@ -46,8 +46,14 @@ class VerticalLinearStepper extends React.Component {
             toSaveRecipient: false,
             toSaveToTemplate: false,
             transferNow: 'True',
-            timing: ''
+            timing: '',
+            recipientPreset: '',
+            transferDate:''
         };
+    }
+
+    componentWillMount() {
+        this.props.fetchPartners();
     }
 
     onChange = (e) => {
@@ -57,6 +63,12 @@ class VerticalLinearStepper extends React.Component {
             this.setState({
                 [e.target.name]: e.target.checked
             });
+        } else if (e.target.name === "recipientPreset"){
+            this.setState({
+                recipientPreset: e.target.value,
+                recipientName: e.target.value.name,
+                recipientAccount: e.target.value.account
+            })
         } else {
             this.setState({
                 [e.target.name]: e.target.value
@@ -66,8 +78,7 @@ class VerticalLinearStepper extends React.Component {
 
     handleNext = () => {
 
-        console.log(this.props);
-        if (this.state.activeStep === getSteps().length-1) {
+        if (this.state.activeStep === getSteps().length - 1) {
             this.handleTransfer()
         }
 
@@ -89,21 +100,31 @@ class VerticalLinearStepper extends React.Component {
     };
 
     handleTransfer = () => {
+
         const newTransaction = {
             amount: this.state.amount,
             recipientName: this.state.recipientName,
             recipientAccount: this.state.recipientAccount,
             ccy: this.state.ccy,
-            timing: this.state.timing
+            timing: this.state.timing,
+            date: new Date()
         };
-        this.props.createTransaction(newTransaction)
+        this.props.createTransaction(newTransaction);
+
+        if (this.state.toSaveRecipient) {
+            const recipientToSave = {
+                name: this.state.recipientName,
+                account: this.state.recipientAccount
+            };
+            this.props.createPartner(recipientToSave);
+        }
     };
 
     render() {
-        const {classes, newTransaction} = this.props;
+        const {classes, newTransaction, partners} = this.props;
         const steps = getSteps();
         const {activeStep} = this.state;
-        const stepContents = getUserInputPanels(this.state, this.onChange);
+        const stepContents = getUserInputPanels(this.state, partners, this.onChange);
 
         if (newTransaction.error) {
             return (
@@ -115,43 +136,43 @@ class VerticalLinearStepper extends React.Component {
             <div className={classes.root}>
                 <h2>New transfer form: </h2>
                 <Paper>
-                <Stepper activeStep={activeStep} orientation="vertical">
-                    {steps.map((label, index) => {
-                        return (
-                            <Step key={label}>
-                                <StepLabel>{label}</StepLabel>
-                                <StepContent>
-                                    <div>
-                                        {stepContents[index]}
-                                    </div>
-                                    <div className={classes.actionsContainer}>
+                    <Stepper activeStep={activeStep} orientation="vertical">
+                        {steps.map((label, index) => {
+                            return (
+                                <Step key={label}>
+                                    <StepLabel>{label}</StepLabel>
+                                    <StepContent>
                                         <div>
-                                            <Button
-                                                disabled={activeStep === 0}
-                                                onClick={this.handleBack}
-                                                className={classes.button}
-                                            >
-                                                Back
-                                            </Button>
-                                            <Button
-                                                variant="contained"
-                                                color="primary"
-                                                onClick={this.handleNext}
-                                                className={classes.button}
-                                            >
-                                                {activeStep === steps.length - 1 ? 'Transfer' : 'Next'}
-                                            </Button>
+                                            {stepContents[index]}
                                         </div>
-                                    </div>
-                                </StepContent>
-                            </Step>
-                        );
-                    })}
-                </Stepper>
+                                        <div className={classes.actionsContainer}>
+                                            <div>
+                                                <Button
+                                                    disabled={activeStep === 0}
+                                                    onClick={this.handleBack}
+                                                    className={classes.button}
+                                                >
+                                                    Back
+                                                </Button>
+                                                <Button
+                                                    variant="contained"
+                                                    color="primary"
+                                                    onClick={this.handleNext}
+                                                    className={classes.button}
+                                                >
+                                                    {activeStep === steps.length - 1 ? 'Transfer' : 'Next'}
+                                                </Button>
+                                            </div>
+                                        </div>
+                                    </StepContent>
+                                </Step>
+                            );
+                        })}
+                    </Stepper>
                 </Paper>
                 {activeStep === steps.length && (newTransaction.loading) && (
                     <Paper square elevation={0} className={classes.resetContainer}>
-                        <Loader message={"Transfer in progress"} />
+                        <Loader message={"Transferring funds..."}/>
                     </Paper>
                 )}
             </div>

@@ -8,6 +8,9 @@ import { faGhost, faList, faPlus, faCalendarAlt } from '@fortawesome/free-solid-
 import TransactionsContainer from "../store/containers/TransactionsContainer/TransactionsContainer";
 import NewTransactionContainer from "../store/containers/NewTransactionContainer/NewTransactionContainer";
 import TransactionDetailContainer from "../store/containers/TransactionDetailContainer/TransactionDetailContainer";
+import 'react-redux-toastr/lib/css/react-redux-toastr.min.css'
+
+
 
 library.add(faGhost, faList, faPlus, faCalendarAlt);
 
