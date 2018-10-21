@@ -1,7 +1,6 @@
-import React from 'react';
 import {connect} from 'react-redux';
-import NewTransactionForm from "../../components/Transaction/NewTransaction/NewTransactionForm/NewTransactionForm";
-import {createTransaction} from "../actions/transactions";
+import NewTransactionForm from "../../../components/Transaction/NewTransaction/NewTransactionForm/NewTransactionForm";
+import {createTransaction} from "../../actions/transactions";
 
 const mapDispatchToProps = (dispatch) => {
     return {

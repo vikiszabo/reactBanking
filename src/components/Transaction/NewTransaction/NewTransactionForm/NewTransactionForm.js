@@ -7,11 +7,9 @@ import StepLabel from '@material-ui/core/StepLabel';
 import StepContent from '@material-ui/core/StepContent';
 import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
-import LinearProgress from "@material-ui/core/LinearProgress/LinearProgress";
 import {getUserInputPanels} from "./UserInputPanels/UserInputPanels";
-import {validateNewTransferForm} from "../../../../utils/validators/validateNewTransferForm";
-import {newTransaction} from "../../../../store/actions/transactions";
+import validateNewTransferForm from "./ValidateNewTransferForm/validateNewTransferForm";
+import Loader from "../../../UI/Loader/Loader";
 
 
 const styles = theme => ({
@@ -115,6 +113,8 @@ class VerticalLinearStepper extends React.Component {
 
         return (
             <div className={classes.root}>
+                <h2>New transfer form: </h2>
+                <Paper>
                 <Stepper activeStep={activeStep} orientation="vertical">
                     {steps.map((label, index) => {
                         return (
@@ -148,10 +148,10 @@ class VerticalLinearStepper extends React.Component {
                         );
                     })}
                 </Stepper>
+                </Paper>
                 {activeStep === steps.length && (newTransaction.loading) && (
                     <Paper square elevation={0} className={classes.resetContainer}>
-                        <Typography>Transferring in progress...</Typography>
-                        <LinearProgress/>
+                        <Loader message={"Transfer in progress"} />
                     </Paper>
                 )}
             </div>

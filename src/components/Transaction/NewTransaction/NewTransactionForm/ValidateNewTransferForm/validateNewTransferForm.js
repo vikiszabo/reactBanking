@@ -1,4 +1,5 @@
-import {validateAccountNumber, validateAmount, validateName, validateTime} from "./index";
+import {validateAccountNumber, validateAmount, validateName, validateTime} from "../../../../../utils/validators";
+
 
 export const validateNewTransferForm = (state) => {
 
@@ -26,8 +27,10 @@ export const validateNewTransferForm = (state) => {
             }
             break;
         default:
-            console.log(state.activeStep)
+            break;
     }
 
     return errors;
 };
+
+export default validateNewTransferForm;

@@ -45,6 +45,31 @@ export const fetchTransactionsFailure = (error) => {
     }
 };
 
+export const fetchTransaction = (dispatch, id) => {
+    axios.get(txnURL+"/"+id)
+        .then(response => dispatch(fetchTransactionSuccess(response)))
+        .catch(error => dispatch(fetchTransactionFailure(error)));
+
+    return {
+        type: FETCH_TRANSACTION
+    }
+};
+
+export const fetchTransactionSuccess = (transaction) => {
+    return {
+        type: FETCH_TRANSACTION_SUCCESS,
+        payload: transaction
+    }
+};
+
+export const fetchTransactionFailure = (error) => {
+    return {
+        type: FETCH_TRANSACTION_FAILURE,
+        payload: error
+    }
+};
+
+
 function createTransactionSuccess() {
     navigate("/transactions");
     return {

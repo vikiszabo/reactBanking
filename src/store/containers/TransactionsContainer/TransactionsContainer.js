@@ -1,9 +1,8 @@
-import React from 'react';
 import {connect} from 'react-redux';
-import Transactions from "../../components/Transaction/Transactions";
+import Transactions from "../../../components/Transaction/Transactions";
 import {
     fetchTransactions,
-} from "../actions/transactions";
+} from "../../actions/transactions";
 
 const mapStateToProps = (state) => {
     return {
