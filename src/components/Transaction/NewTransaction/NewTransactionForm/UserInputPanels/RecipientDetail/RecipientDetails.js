@@ -19,7 +19,7 @@ const RecipientDetails = ({classes, recipientPreset, recipientName, recipientAcc
         <div>
             <TextSelect
                 name="recipientPreset"
-                label="Recipient from frequent partners"
+                label="Choose a frequent partner..."
                 value={recipientPreset}
                 textList={partners.partners}
                 onChange={onChange}
@@ -28,7 +28,7 @@ const RecipientDetails = ({classes, recipientPreset, recipientName, recipientAcc
     );
 
     return (
-        <div className={classes.root}>
+        <form className={classes.root}>
             {!recipientPreset && frequentPartners}
             <TextInput
                 value={recipientName}
@@ -54,7 +54,7 @@ const RecipientDetails = ({classes, recipientPreset, recipientName, recipientAcc
                 />}
                 label="Save to partners"
             />}
-        </div>
+        </form>
     );
 };
 

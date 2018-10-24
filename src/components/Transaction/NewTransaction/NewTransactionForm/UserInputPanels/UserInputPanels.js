@@ -24,7 +24,6 @@ export const getUserInputPanels = (state, partners, onChange) => {
             errors={state.errors}
         />,
         <OtherDetails
-            toSaveToTemplate={state.toSaveToTemplate}
             transferNow={state.transferNow}
             timing={state.timing}
             onChange={onChange}

@@ -28,7 +28,7 @@ const styles = theme => ({
 const TextSelect = ({classes, name, label, onChange, onFocus, placeholder, value, textList}) => {
     return (
         <FormControl variant="outlined" className={classes.formControl}>
-            <InputLabel htmlFor="textSelect">Frequent partners</InputLabel>
+            <InputLabel htmlFor="textSelect">{label}</InputLabel>
             <Select
                 autoWidth={true}
                 variant="outlined"

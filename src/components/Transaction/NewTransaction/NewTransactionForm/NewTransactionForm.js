@@ -43,11 +43,9 @@ class VerticalLinearStepper extends React.Component {
             ccy: '$',
             recipientName: '',
             recipientAccount: '',
-            toSaveRecipient: false,
-            toSaveToTemplate: false,
             transferNow: 'True',
             timing: '',
-            recipientPreset: '',
+            recipientPreset: false,
             transferDate:''
         };
     }
@@ -65,7 +63,7 @@ class VerticalLinearStepper extends React.Component {
             });
         } else if (e.target.name === "recipientPreset"){
             this.setState({
-                recipientPreset: e.target.value,
+                recipientPreset: true,
                 recipientName: e.target.value.name,
                 recipientAccount: e.target.value.account
             })
@@ -106,8 +104,7 @@ class VerticalLinearStepper extends React.Component {
             recipientName: this.state.recipientName,
             recipientAccount: this.state.recipientAccount,
             ccy: this.state.ccy,
-            timing: this.state.timing,
-            date: new Date()
+            timing: this.state.timing
         };
         this.props.createTransaction(newTransaction);
 

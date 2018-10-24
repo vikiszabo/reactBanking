@@ -20,6 +20,7 @@ const styles = theme => ({
 const AmountInput = ({classes, name, label, onChange, onBlur, onFocus, placeholder, value, error, ccy}) => {
     return (
         <FormControl className="field">
+            <input type="text"/>
             <TextField
                 className={classes.textField}
                 fullWidth

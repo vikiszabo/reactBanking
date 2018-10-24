@@ -3,7 +3,7 @@ import {navigate} from "@reach/router";
 import {toastr} from "react-redux-toastr";
 import * as actions from "./actions"
 
-const txnURL = "http://localhost:8000/transactions";
+const txnURL = "https://react-banking-server.herokuapp.com/transactions";
 
 export const fetchTransactions = (dispatch) => {
     axios.get(txnURL)
@@ -15,7 +15,7 @@ export const fetchTransactions = (dispatch) => {
     }
 };
 
-export const fetchTransactionsSuccess = (transactions) => {
+export const fetchTransactionsSuccess = async (transactions) => {
     return {
         type: actions.FETCH_TRANSACTIONS_SUCCESS,
         payload: transactions
@@ -64,6 +64,7 @@ function createTransactionSuccess() {
 }
 
 function createTransactionFailure(error) {
+    toastr.error(error.toString());
     return {
         type: actions.CREATE_TRANSACTION_FAILURE,
         payload: error

@@ -4,7 +4,7 @@ import LinearProgress from "@material-ui/core/LinearProgress/LinearProgress";
 
 const Loader = ({message}) => {
     return (
-        <div>
+        <div className={"Loader"}>
             <Typography>{message}</Typography>
             <LinearProgress/>
         </div>

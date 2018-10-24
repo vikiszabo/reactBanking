@@ -2,7 +2,7 @@ import * as actions from "./actions"
 import * as axios from "axios";
 import {toastr} from "react-redux-toastr";
 
-const partnersURL = "http://localhost:8000/partners";
+const partnersURL = "https://react-banking-server.herokuapp.com/partners";
 
 
 function fetchPartnersSuccess(partners) {

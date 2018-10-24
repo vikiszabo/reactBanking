@@ -11,7 +11,7 @@ const styles = theme => ({
     }
 });
 
-const OtherDetails = ({classes, timing,errors, toSaveToTemplate, transferNow, onChange}) => (
+const OtherDetails = ({classes, timing,errors, transferNow, onChange}) => (
     <div className={classes.root}>
 
         <FormControlLabel
@@ -33,16 +33,6 @@ const OtherDetails = ({classes, timing,errors, toSaveToTemplate, transferNow, on
                 error={errors.timing}
             />
         )}
-
-        <FormControlLabel
-            control={<Switch
-                name={"toSaveToTemplate"}
-                value="toSaveToTemplate"
-                checked={toSaveToTemplate}
-                onChange={onChange}
-            />}
-            label="Save details to templates"
-        />
     </div>
 );
 
