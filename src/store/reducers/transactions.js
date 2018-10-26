@@ -15,7 +15,7 @@ const transactions = (state = INITIAL_STATE, action) => {
         case actions.FETCH_TRANSACTIONS:
             return {...state, transactionList: {transactions: [], error: null, loading: true}};
         case actions.FETCH_TRANSACTIONS_SUCCESS:
-            return {...state, transactionList: {transactions: action.payload.data, error: null, loading: false}};
+            return {...state, transactionList: {transactions: action.payload, error: null, loading: false}};
         case actions.FETCH_TRANSACTIONS_FAILURE:
             error = action.payload || {message: action.payload.message};
             return {...state, transactionList: {transactions: [], error: error, loading: false}};
@@ -30,7 +30,7 @@ const transactions = (state = INITIAL_STATE, action) => {
         case actions.FETCH_TRANSACTION:
             return {...state, activeTransaction: {transaction: {}, error: null, loading: true}};
         case actions.FETCH_TRANSACTION_SUCCESS:
-            return {...state, activeTransaction: {transaction: action.payload.data, error: null, loading: false}};
+            return {...state, activeTransaction: {transaction: action.payload, error: null, loading: false}};
         case actions.FETCH_TRANSACTION_FAILURE:
             error = action.payload || {message: action.payload.message};
             return {...state, activeTransaction: {transaction: {}, error: error, loading: false}};

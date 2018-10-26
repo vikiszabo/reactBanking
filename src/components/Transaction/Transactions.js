@@ -26,7 +26,6 @@ class Transactions extends Component {
 
     render() {
         const {transactions, loading, error} = this.props.transactions;
-
         if (loading) {
             return (
                 <Loader message={"Loading transactions..."} />

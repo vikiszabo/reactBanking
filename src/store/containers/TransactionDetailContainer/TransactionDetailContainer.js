@@ -4,7 +4,7 @@ import {fetchTransaction} from "../../actions/transactions";
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchTransaction: (id)=> {dispatch(fetchTransaction(dispatch, id))}
+        fetchTransaction: id => dispatch(fetchTransaction(id))
     };
 };
 

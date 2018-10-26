@@ -5,9 +5,9 @@ import {createPartner, fetchPartners} from "../../actions/partners";
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        createTransaction: (transaction) => {dispatch(createTransaction(dispatch, transaction))},
-        createPartner: (partner) => {dispatch(createPartner(dispatch, partner))},
-        fetchPartners: () => {dispatch(fetchPartners(dispatch))}
+        createTransaction: transaction => dispatch(createTransaction(transaction)),
+        createPartner: partner => dispatch(createPartner(partner)),
+        fetchPartners: () => {dispatch(fetchPartners())}
     };
 };
 

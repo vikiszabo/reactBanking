@@ -2,20 +2,20 @@ import axios from "axios";
 import {navigate} from "@reach/router";
 import {toastr} from "react-redux-toastr";
 import * as actions from "./actions"
+import {urls} from "../../utils/constants/constants";
 
-const txnURL = "https://react-banking-server.herokuapp.com/transactions";
 
-export const fetchTransactions = (dispatch) => {
-    axios.get(txnURL)
-        .then(response => dispatch(fetchTransactionsSuccess(response)))
-        .catch(error => dispatch(fetchTransactionsFailure(error)));
-
-    return {
-        type: actions.FETCH_TRANSACTIONS
+export const fetchTransactions = () => async (dispatch) => {
+    try {
+        dispatch({type: actions.FETCH_TRANSACTIONS});
+        const {data: transactions} = await axios.get(urls.transactions);
+        dispatch(fetchTransactionsSuccess(transactions))
+    } catch (e) {
+        dispatch(fetchTransactionsFailure(e))
     }
 };
 
-export const fetchTransactionsSuccess = async (transactions) => {
+export const fetchTransactionsSuccess = (transactions) => {
     return {
         type: actions.FETCH_TRANSACTIONS_SUCCESS,
         payload: transactions
@@ -29,14 +29,15 @@ export const fetchTransactionsFailure = (error) => {
     }
 };
 
-export const fetchTransaction = (dispatch, id) => {
-    axios.get(txnURL + "/" + id)
-        .then(response => dispatch(fetchTransactionSuccess(response)))
-        .catch(error => dispatch(fetchTransactionFailure(error)));
-
-    return {
-        type: actions.FETCH_TRANSACTION
+export const fetchTransaction = id => async dispatch => {
+    try {
+        dispatch({type: actions.FETCH_TRANSACTION});
+        const {data: transaction} = await axios.get(urls.transactions + "/" + id);
+        dispatch(fetchTransactionSuccess(transaction))
+    } catch (e) {
+        dispatch(fetchTransactionFailure(e))
     }
+
 };
 
 export const fetchTransactionSuccess = (transaction) => {
@@ -71,12 +72,13 @@ function createTransactionFailure(error) {
     };
 }
 
-export const createTransaction = (dispatch, transaction) => {
-    axios.post(txnURL, transaction)
-        .then(() => dispatch(createTransactionSuccess()))
-        .catch(error => dispatch(createTransactionFailure(error)));
-    return {
-        type: actions.CREATE_TRANSACTION
+export const createTransaction = transaction => async dispatch =>{
+    try {
+        dispatch({type: actions.CREATE_TRANSACTION});
+        await axios.post(urls.transactions, transaction);
+        dispatch(createTransactionSuccess())
+    } catch (e) {
+        dispatch(createTransactionFailure(e))
     }
 };
 

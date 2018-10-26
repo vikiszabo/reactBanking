@@ -10,7 +10,7 @@ const partners = (state = INIT_STATE, action) => {
         case actions.FETCH_PARTNERS:
             return {...state, partnerLis: {partners: [], error: null, loading: true}};
         case actions.FETCH_PARTNERS_SUCCESS:
-            return {...state, partnerList: {partners: action.payload.data, error: null, loading: false}};
+            return {...state, partnerList: {partners: action.payload, error: null, loading: false}};
         case actions.FETCH_PARTNERS_FAILURE:
             return {...state, partnerList: {partners: [], error: action.payload, loading: false}};
         default:

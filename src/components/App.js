@@ -22,9 +22,7 @@ class App extends Component {
                     <Example text={"React banking"} path="/"/>
                     <NewTransactionContainer path="/new-transaction"/>
                     <TransactionDetailContainer path="transactions/:id" />
-                    <TransactionsContainer path="transactions">
-
-                    </TransactionsContainer>
+                    <TransactionsContainer path="transactions" />
                 </Router>
             </Navigation>
         );

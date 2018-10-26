@@ -20,7 +20,6 @@ class TransactionDetail extends Component {
 
     render() {
         const {transaction, loading, error} = this.props.transaction;
-
         if (loading) {
             return (
                 <Loader message={"Loading transaction details..."}/>

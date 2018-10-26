@@ -64,7 +64,7 @@ TextSelect.propTypes = {
     onChange: PropTypes.func.isRequired,
     onFocus: PropTypes.func,
     placeholder: PropTypes.string,
-    value: PropTypes.string,
+    value: PropTypes.bool.isRequired,
     textList: PropTypes.array
 };
 

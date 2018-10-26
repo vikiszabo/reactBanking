@@ -31,3 +31,9 @@ export const navlinks = [
     {"icon": <FontAwesomeIcon icon="ghost" size="lg" />, "label": "Send", "url": "/"},
     {"icon": <FontAwesomeIcon icon="ghost" size="lg"/>, "label": "Drafts", "url": "/"}
 ];
+
+export const urls = {
+    transactions: "https://react-banking-server.herokuapp.com/transactions",
+    partners: "https://react-banking-server.herokuapp.com/partners"
+};
+
